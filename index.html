@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanEnergy - Power Your Adventure</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2A6DFF;
+            --secondary: #FF9500;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1a56e0;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e08500;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        /* Page-specific styles */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            width: 90%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Van<span>Energy</span></div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="vanenergy">VanEnergy</a></li>
+                    <li><a href="#" data-page="packages">Packages</a></li>
+                    <li><a href="#" data-page="pricing">Pricing</a></li>
+                    <li><a href="#" data-page="book-audit">Book Audit</a></li>
+                    <li><a href="#" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" data-page="stories">Stories</a></li>
+                    <li><a href="#" data-page="faq">FAQ</a></li>
+                    <li><a href="#" data-page="about">About</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <div class="container">
+                <h1>Power Your Adventure</h1>
+                <p>Advanced energy solutions for RV and van life. Go further, stay longer, live freely.</p>
+                <a href="#" class="btn" data-page="packages">Explore Packages</a>
+                <a href="#" class="btn btn-secondary" data-page="book-audit">Book Free Audit</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose VanEnergy?</h2>
+                <p>We provide reliable, efficient power solutions tailored for life on the road.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Solar Power Systems</h3>
+                        <p>Harness the sun's energy with our efficient solar panel systems designed for RVs and vans.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Battery Solutions</h3>
+                        <p>Advanced lithium battery technology for longer life and better performance.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="card-content">
+                        <h3>Energy Monitoring</h3>
+                        <p>Smart monitoring systems to track your energy usage and optimize performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VanEnergy Page -->
+    <section id="vanenergy" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>VanEnergy Solutions</h2>
+                <p>Comprehensive energy systems designed specifically for van and RV living.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Our Technology</h3>
+                    <p>VanEnergy systems combine cutting-edge solar technology with smart battery management to deliver reliable power wherever your adventures take you.</p>
+                    <p>Our proprietary energy management system optimizes power usage, extends battery life, and ensures you always have power when you need it most.</p>
+                    <ul style="margin: 20px 0 20px 20px;">
+                        <li>High-efficiency solar panels</li>
+                        <li>Advanced lithium batteries</li>
+                        <li>Smart energy monitoring</li>
+                        <li>Remote system diagnostics</li>
+                    </ul>
+                    <a href="#" class="btn" data-page="packages">View Packages</a>
+                </div>
+                <div>
+                    <div class="card-img" style="height: 300px; background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Page -->
+    <section id="packages" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Energy Packages</h2>
+                <p>Choose the perfect energy solution for your lifestyle and power needs.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Essential Package</h3>
+                        <p>Perfect for weekend warriors and occasional travelers</p>
+                        <ul style="margin: 20px 0;">
+                            <li>200W Solar Panel</li>
+                            <li>100Ah Lithium Battery</li>
+                            <li>Basic Charge Controller</li>
+                            <li>Standard Installation</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="pricing">View Pricing</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Adventure Package</h3>
+                        <p>Ideal for full-time van lifers and extended travelers</p>
+                        <ul style="margin: 20px 0;">
+                            <li>400W Solar Panel</li>
+                            <li>200Ah Lithium Battery</li>
+                            <li>MPPT Charge Controller</li>
+                            <li>Energy Monitoring System</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="pricing">View Pricing</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Expedition Package</h3>
+                        <p>For power-intensive setups and off-grid living</p>
+                        <ul style="margin: 20px 0;">
+                            <li>600W Solar Panel</li>
+                            <li>300Ah Lithium Battery</li>
+                            <li>Advanced MPPT Controller</li>
+                            <li>Smart Energy Management</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="pricing">View Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Page -->
+    <section id="pricing" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing</h2>
+                <p>Transparent pricing for all our energy packages and services.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <h3>Essential</h3>
+                        <h2 style="margin: 20px 0; color: var(--primary);">$2,499</h2>
+                        <p>Perfect for weekend adventures</p>
+                        <ul style="margin: 20px 0; list-style: none;">
+                            <li>200W Solar Panel</li>
+                            <li>100Ah Lithium Battery</li>
+                            <li>Basic Installation</li>
+                            <li>1-Year Warranty</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="book-audit">Get Started</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <h3>Adventure</h3>
+                        <h2 style="margin: 20px 0; color: var(--primary);">$4,299</h2>
+                        <p>Ideal for full-time van life</p>
+                        <ul style="margin: 20px 0; list-style: none;">
+                            <li>400W Solar Panel</li>
+                            <li>200Ah Lithium Battery</li>
+                            <li>MPPT Controller</li>
+                            <li>3-Year Warranty</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="book-audit">Get Started</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content" style="text-align: center;">
+                        <h3>Expedition</h3>
+                        <h2 style="margin: 20px 0; color: var(--primary);">$6,199</h2>
+                        <p>For power-intensive setups</p>
+                        <ul style="margin: 20px 0; list-style: none;">
+                            <li>600W Solar Panel</li>
+                            <li>300Ah Lithium Battery</li>
+                            <li>Smart Management</li>
+                            <li>5-Year Warranty</li>
+                        </ul>
+                        <a href="#" class="btn" data-page="book-audit">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <p>All packages include professional installation and setup. Financing options available.</p>
+                <a href="#" class="btn btn-secondary" data-page="contact">Contact for Custom Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Audit Page -->
+    <section id="book-audit" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Free Energy Audit</h2>
+                <p>Let us assess your energy needs and recommend the perfect solution for your van or RV.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>What to Expect</h3>
+                    <p>Our free energy audit includes:</p>
+                    <ul style="margin: 20px 0 20px 20px;">
+                        <li>Assessment of your current power usage</li>
+                        <li>Evaluation of your space and installation options</li>
+                        <li>Customized energy solution recommendations</li>
+                        <li>Detailed cost estimate</li>
+                        <li>No obligation to purchase</li>
+                    </ul>
+                    <p>The audit takes approximately 60 minutes and can be done in person or virtually.</p>
+                </div>
+                
+                <div>
+                    <form id="audit-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vehicle">Vehicle Type</label>
+                            <select id="vehicle" class="form-control" required>
+                                <option value="">Select your vehicle</option>
+                                <option value="van">Van</option>
+                                <option value="rv">RV</option>
+                                <option value="camper">Camper</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred Date</label>
+                            <input type="date" id="preferred-date" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Additional Notes</label>
+                            <textarea id="notes" class="form-control" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Book My Free Audit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+                <p>See our energy solutions in action with real customer installations.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="1"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="2"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1565945887714-d5139f4eb0ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="3"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="4"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="5"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1576675466969-38eeae4b41f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');" data-image="6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Page -->
+    <section id="stories" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Stories</h2>
+                <p>Real experiences from van lifers who transformed their adventures with our energy solutions.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>From City to Mountains</h3>
+                        <p>"After installing the Adventure Package, we've been able to spend months at a time in remote areas without worrying about power. The system has been flawless."</p>
+                        <p><strong>Sarah & Mike</strong> - Full-time van lifers</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Weekend Warrior Upgrade</h3>
+                        <p>"The Essential Package was perfect for our weekend camping trips. Installation was quick, and we've never run out of power, even on cloudy days."</p>
+                        <p><strong>James</strong> - Weekend adventurer</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Digital Nomad Solution</h3>
+                        <p>"As a remote worker, I need reliable power for my laptop and equipment. The Expedition Package gives me all the power I need while living on the road."</p>
+                        <p><strong>Alex</strong> - Digital nomad</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Retirement Adventure</h3>
+                        <p>"We retired and bought an RV to travel the country. VanEnergy made sure we had all the comforts of home with reliable power wherever we go."</p>
+                        <p><strong>Linda & Robert</strong> - Retired travelers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Page -->
+    <section id="faq" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our energy solutions.</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">How long does installation take? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Most installations are completed within 1-2 days, depending on the complexity of your system and vehicle setup.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What maintenance is required? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Our systems require minimal maintenance. We recommend periodic cleaning of solar panels and an annual system check to ensure optimal performance.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer financing? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer several financing options to make our energy solutions accessible. Contact us for details on current financing programs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">What is the warranty on your systems? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Warranties vary by package: Essential (1 year), Adventure (3 years), Expedition (5 years). All components also carry manufacturer warranties.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I expand my system later? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Yes, all our systems are designed with expansion in mind. We can easily add more solar panels or batteries as your needs grow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>About VanEnergy</h2>
+                <p>Powering adventures since 2018.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Our Story</h3>
+                    <p>VanEnergy was founded by a group of outdoor enthusiasts who struggled with unreliable power during their van life adventures. Frustrated with existing solutions, we set out to create energy systems specifically designed for life on the road.</p>
+                    <p>Today, we've helped thousands of van lifers, RV travelers, and outdoor enthusiasts power their adventures with reliable, efficient energy solutions.</p>
+                    
+                    <h3 style="margin-top: 30px;">Our Mission</h3>
+                    <p>To enable freedom and adventure through reliable, sustainable energy solutions that empower people to live and work wherever their journeys take them.</p>
+                </div>
+                
+                <div>
+                    <div class="card-img" style="height: 400px; background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 30px;">Our Values</h3>
+                <div class="grid-3">
+                    <div style="text-align: center;">
+                        <h4>Sustainability</h4>
+                        <p>We believe in harnessing renewable energy to power adventures without harming the planet.</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <h4>Reliability</h4>
+                        <p>Our systems are built to perform in the most challenging conditions and environments.</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <h4>Innovation</h4>
+                        <p>We continuously improve our technology to deliver better performance and user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team to discuss your energy needs.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about our energy solutions? Ready to schedule your free audit? Reach out to our team - we're here to help!</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Contact Information</h4>
+                        <p><strong>Email:</strong> info@vanenergy.co</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <p><strong>Address:</strong> 123 Adventure Lane, Boulder, CO 80301</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 9am - 6pm MST</p>
+                        <p>Saturday: 10am - 4pm MST</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VanEnergy</h3>
+                    <p>Powering your adventures with reliable, sustainable energy solutions for van and RV life.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="packages">Packages</a></li>
+                        <li><a href="#" data-page="pricing">Pricing</a></li>
+                        <li><a href="#" data-page="book-audit">Book Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#" data-page="faq">FAQ</a></li>
+                        <li><a href="#" data-page="stories">Customer Stories</a></li>
+                        <li><a href="#" data-page="gallery">Gallery</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 VanEnergy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Gallery Image</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-image" style="width: 100%; height: 400px; background-size: contain; background-position: center; background-repeat: no-repeat;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+            
+            // Page navigation
+            const navLinks = document.querySelectorAll('nav a, .btn[data-page]');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show target page
+                    document.getElementById(targetPage).classList.add('active');
+                    
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Gallery modal functionality
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalClose = document.querySelector('.modal-close');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imageUrl = this.style.backgroundImage.slice(5, -2);
+                    modalImage.style.backgroundImage = `url(${imageUrl})`;
+                    modal.classList.add('active');
+                });
+            });
+            
+            modalClose.addEventListener('click', function() {
+                modal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+            
+            // Form submission
+            const auditForm = document.getElementById('audit-form');
+            const contactForm = document.getElementById('contact-form');
+            
+            if (auditForm) {
+                auditForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you! Your audit request has been submitted. We will contact you shortly to confirm your appointment.');
+                    this.reset();
+                });
+            }
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you within 24 hours.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
